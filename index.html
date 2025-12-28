@@ -233,11 +233,8 @@
                 document.getElementById(tid).innerText = replyText;
             } catch (error) {
                 console.error(error);
-                let errMsg = "Connection lost. Please check console.";
-                if (error.toString().includes("429")) {
-                    errMsg = "Too many requests (Quota Exceeded). Try again later.";
-                }
-                document.getElementById(tid).innerText = errMsg;
+                // Show the actual error on screen for debugging
+                document.getElementById(tid).innerText = "Error details: " + (error.message || error.toString());
             }
         }
 
